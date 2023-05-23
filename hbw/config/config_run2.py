@@ -83,6 +83,8 @@ def add_config(
     cfg.add_process(procs.n.qqHH_CV_0p5_C2V_1_kl_1_sl_hbbhww)
     cfg.add_process(procs.n.qqHH_CV_1p5_C2V_1_kl_1_sl_hbbhww)
     cfg.add_process(procs.n.hh_ggf_bbtautau)
+    cfg.add_process(procs.n.graviton_hh_ggf_bbww)
+    cfg.add_process(procs.n.radion_hh_ggf_bbww)
 
     cfg.get_process("qcd_mu").label = "QCD Muon enriched"
     qcd_ele = cfg.add_process(
@@ -172,6 +174,58 @@ def add_config(
         "qqHH_CV_1p5_C2V_1_kl_1_sl_hbbhww_madgraph",
         # HH(bbtautau)
         "hh_ggf_bbtautau_madgraph",
+        # radion HH(bbWW)
+        "radion_hh_ggf_bbww_m250_madgraph",
+        "radion_hh_ggf_bbww_m260_madgraph",
+        "radion_hh_ggf_bbww_m270_madgraph",
+        "radion_hh_ggf_bbww_m280_madgraph",
+        "radion_hh_ggf_bbww_m300_madgraph",
+        "radion_hh_ggf_bbww_m320_madgraph",
+        "radion_hh_ggf_bbww_m350_madgraph",
+        "radion_hh_ggf_bbww_m400_madgraph",
+        "radion_hh_ggf_bbww_m450_madgraph",
+        "radion_hh_ggf_bbww_m500_madgraph",
+        "radion_hh_ggf_bbww_m550_madgraph",
+        "radion_hh_ggf_bbww_m600_madgraph",
+        "radion_hh_ggf_bbww_m650_madgraph",
+        "radion_hh_ggf_bbww_m700_madgraph",
+        "radion_hh_ggf_bbww_m750_madgraph",
+        "radion_hh_ggf_bbww_m800_madgraph",
+        "radion_hh_ggf_bbww_m850_madgraph",
+        "radion_hh_ggf_bbww_m900_madgraph",
+        "radion_hh_ggf_bbww_m1000_madgraph",
+        "radion_hh_ggf_bbww_m1250_madgraph",
+        "radion_hh_ggf_bbww_m1500_madgraph",
+        "radion_hh_ggf_bbww_m1750_madgraph",
+        "radion_hh_ggf_bbww_m2000_madgraph",
+        "radion_hh_ggf_bbww_m2500_madgraph",
+        "radion_hh_ggf_bbww_m3000_madgraph",
+        # graviton HH(bbWW)
+        "graviton_hh_ggf_bbww_m250_madgraph",
+        "graviton_hh_ggf_bbww_m260_madgraph",
+        "graviton_hh_ggf_bbww_m270_madgraph",
+        "graviton_hh_ggf_bbww_m280_madgraph",
+        "graviton_hh_ggf_bbww_m300_madgraph",
+        "graviton_hh_ggf_bbww_m320_madgraph",
+        "graviton_hh_ggf_bbww_m350_madgraph",
+        "graviton_hh_ggf_bbww_m400_madgraph",
+        "graviton_hh_ggf_bbww_m450_madgraph",
+        "graviton_hh_ggf_bbww_m500_madgraph",
+        "graviton_hh_ggf_bbww_m550_madgraph",
+        "graviton_hh_ggf_bbww_m600_madgraph",
+        "graviton_hh_ggf_bbww_m650_madgraph",
+        "graviton_hh_ggf_bbww_m700_madgraph",
+        "graviton_hh_ggf_bbww_m750_madgraph",
+        "graviton_hh_ggf_bbww_m800_madgraph",
+        "graviton_hh_ggf_bbww_m850_madgraph",
+        "graviton_hh_ggf_bbww_m900_madgraph",
+        "graviton_hh_ggf_bbww_m1000_madgraph",
+        "graviton_hh_ggf_bbww_m1250_madgraph",
+        "graviton_hh_ggf_bbww_m1500_madgraph",
+        "graviton_hh_ggf_bbww_m1750_madgraph",
+        "graviton_hh_ggf_bbww_m2000_madgraph",
+        "graviton_hh_ggf_bbww_m2500_madgraph",
+        "graviton_hh_ggf_bbww_m3000_madgraph",
     ]
     for dataset_name in dataset_names:
         dataset = cfg.add_dataset(campaign.get_dataset(dataset_name))
