@@ -362,35 +362,36 @@ def add_variables(config: od.Config) -> None:
 
     # Leptons
     for obj in ["Electron", "Muon"]:
-        config.add_variable(
-            name=f"{obj.lower()}_pt",
-            expression=f"{obj}.pt[:,0]",
-            null_value=EMPTY_FLOAT,
-            binning=(40, 0., 350.),
-            unit="GeV",
-            x_title=obj + r" $p_{T}$",
-        )
-        config.add_variable(
-            name=f"{obj.lower()}_phi",
-            expression=f"{obj}.phi[:,0]",
-            null_value=EMPTY_FLOAT,
-            binning=(40, -3.2, 3.2),
-            x_title=obj + r" $\phi$",
-        )
-        config.add_variable(
-            name=f"{obj.lower()}_eta",
-            expression=f"{obj}.eta[:,0]",
-            null_value=EMPTY_FLOAT,
-            binning=(50, -2.5, 2.5),
-            x_title=obj + r" $\eta$",
-        )
-        config.add_variable(
-            name=f"{obj.lower()}_mass",
-            expression=f"{obj}.mass[:,0]",
-            null_value=EMPTY_FLOAT,
-            binning=(40, 0, 200),
-            x_title=obj + " mass",
-        )
+        for i in range(2):
+            config.add_variable(
+                name=f"{obj.lower()}_{i+1}_pt",
+                expression=f"{obj}.pt[:,{i}]",
+                null_value=EMPTY_FLOAT,
+                binning=(40, 0., 350.),
+                unit="GeV",
+                x_title=obj + r" %i $p_{T}$" % (i + 1),
+            )
+            config.add_variable(
+                name=f"{obj.lower()}_{i+1}_phi",
+                expression=f"{obj}.phi[:,{i}]",
+                null_value=EMPTY_FLOAT,
+                binning=(40, -3.2, 3.2),
+                x_title=obj + r" %i $\phi$" % (i + 1),
+            )
+            config.add_variable(
+                name=f"{obj.lower()}_{i+1}_eta",
+                expression=f"{obj}.eta[:,{i}]",
+                null_value=EMPTY_FLOAT,
+                binning=(50, -2.5, 2.5),
+                x_title=obj + r" %i $\eta$" % (i + 1),
+            )
+            config.add_variable(
+                name=f"{obj.lower()}_{i+1}_mass",
+                expression=f"{obj}.mass[:,{i}]",
+                null_value=EMPTY_FLOAT,
+                binning=(40, 0, 200),
+                x_title=obj + " %i mass" % (i + 1),
+            )
 
     # MET
     config.add_variable(

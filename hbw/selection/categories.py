@@ -20,21 +20,33 @@ def catid_selection_incl(self: Selector, events: ak.Array, **kwargs) -> ak.Array
 def catid_selection_1e(self: Selector, events: ak.Array, results: SelectionResult, **kwargs) -> ak.Array:
     return (ak.num(results.objects.Electron.Electron, axis=-1) == 1) & (ak.num(results.objects.Muon.Muon, axis=-1) == 0)
 
+@selector(uses={"event"})
+def catid_selection_2e(self: Selector, events: ak.Array, results: SelectionResult, **kwargs) -> ak.Array:
+    return (ak.num(results.objects.Electron.Electron, axis=-1) == 2) & (ak.num(results.objects.Muon.Muon, axis=-1) == 0)
 
 @selector(uses={"event"})
 def catid_selection_1mu(self: Selector, events: ak.Array, results: SelectionResult, **kwargs) -> ak.Array:
     return (ak.num(results.objects.Electron.Electron, axis=-1) == 0) & (ak.num(results.objects.Muon.Muon, axis=-1) == 1)
 
+@selector(uses={"event"})
+def catid_selection_2mu(self: Selector, events: ak.Array, results: SelectionResult, **kwargs) -> ak.Array:
+    return (ak.num(results.objects.Electron.Electron, axis=-1) == 0) & (ak.num(results.objects.Muon.Muon, axis=-1) == 2)
 
 @selector(uses={"Electron.pt", "Muon.pt"})
 def catid_1e(self: Selector, events: ak.Array, **kwargs) -> ak.Array:
     return (ak.sum(events.Electron.pt > 0, axis=-1) == 1) & (ak.sum(events.Muon.pt > 0, axis=-1) == 0)
 
+@selector(uses={"Electron.pt", "Muon.pt"})
+def catid_2e(self: Selector, events: ak.Array, **kwargs) -> ak.Array:
+    return (ak.sum(events.Electron.pt > 0, axis=-1) == 2) & (ak.sum(events.Muon.pt > 0, axis=-1) == 0)
 
 @selector(uses={"Electron.pt", "Muon.pt"})
 def catid_1mu(self: Selector, events: ak.Array, **kwargs) -> ak.Array:
     return (ak.sum(events.Electron.pt > 0, axis=-1) == 0) & (ak.sum(events.Muon.pt > 0, axis=-1) == 1)
 
+@selector(uses={"Electron.pt", "Muon.pt"})
+def catid_2mu(self: Selector, events: ak.Array, **kwargs) -> ak.Array:
+    return (ak.sum(events.Electron.pt > 0, axis=-1) == 0) & (ak.sum(events.Muon.pt > 0, axis=-1) == 2)
 
 @selector(uses={"Jet.pt", "FatJet.pt"})
 def catid_boosted(self: Selector, events: ak.Array, **kwargs) -> ak.Array:
